@@ -27,9 +27,9 @@ MonoBehaviour:
       diologueIndex: 3
   - name: option 1
     text: You picked option 1
-    type: 0
+    type: 2
     prompts: []
   - name: option 2
     text: You picked the second option
-    type: 0
+    type: 2
     prompts: []
