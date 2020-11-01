@@ -12,6 +12,8 @@ public class TextDelay2 : MonoBehaviour
 
     public void EnterText(string message)
     {
+        myText.maxVisibleCharacters = 0;
+
         if(message != null)
         {
             myText.text = message;
@@ -28,12 +30,13 @@ public class TextDelay2 : MonoBehaviour
             yield return new WaitForSeconds(time);
         }
         isTyping = false;
+        DiologueManager.instance.FinishedText();
     }
 
     void Start()
     {
         myText = GetComponent<TextMeshProUGUI>();
-        EnterText("some really long message that is super long and would take a long time to type");
+        //EnterText("some really long message that is super long and would take a long time to type");
     }
 
     void Update()
@@ -42,6 +45,7 @@ public class TextDelay2 : MonoBehaviour
         {
             StopCoroutine(typeCoroutine);
             isTyping = false;
+            DiologueManager.instance.FinishedText();
             myText.maxVisibleCharacters = myText.textInfo.characterCount;
         }
     }
